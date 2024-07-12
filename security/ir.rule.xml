@@ -1,0 +1,113 @@
+<odoo>
+    <!-- Mail Order Rules -->
+    <record id="mailorder_rule_operator" model="ir.rule">
+        <field name="name">Mail Order Operator Rule</field>
+        <field name="model_id" ref="model_uic_post_mailorder"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_operator'))]"/>
+        <field name="domain_force">[('sending_branch_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="mailorder_rule_storekeeper" model="ir.rule">
+        <field name="name">Mail Order Storekeeper Rule</field>
+        <field name="model_id" ref="model_uic_post_mailorder"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_storekeeper'))]"/>
+        <field name="domain_force">[('sending_branch_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="mailorder_rule_delivery_person" model="ir.rule">
+        <field name="name">Mail Order Delivery Person Rule</field>
+        <field name="model_id" ref="model_uic_post_mailorder"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_delivery_person'))]"/>
+        <field name="domain_force">[('receiving_branch_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="mailorder_rule_head_branch" model="ir.rule">
+        <field name="name">Mail Order Head of Branch Rule</field>
+        <field name="model_id" ref="model_uic_post_mailorder"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_head_branch'))]"/>
+        <field name="domain_force">[('sending_branch_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record id="mailorder_rule_superadmin" model="ir.rule">
+        <field name="name">Mail Order Superadmin Rule</field>
+        <field name="model_id" ref="model_uic_post_mailorder"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_superadmin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Inventory Rules -->
+    <record id="inventory_rule_operator" model="ir.rule">
+        <field name="name">Inventory Operator Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_operator'))]"/>
+        <field name="domain_force">[('location_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="inventory_rule_storekeeper" model="ir.rule">
+        <field name="name">Inventory Storekeeper Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_storekeeper'))]"/>
+        <field name="domain_force">[('location_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="inventory_rule_delivery_person" model="ir.rule">
+        <field name="name">Inventory Delivery Person Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_delivery_person'))]"/>
+        <field name="domain_force">[('location_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <record id="inventory_rule_head_branch" model="ir.rule">
+        <field name="name">Inventory Head of Branch Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_head_branch'))]"/>
+        <field name="domain_force">[('location_id', 'in', [user.company_id.id])]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record id="inventory_rule_superadmin" model="ir.rule">
+        <field name="name">Inventory Superadmin Rule</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="groups" eval="[(4, ref('uic_post.group_uic_post_superadmin'))]"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+</odoo>

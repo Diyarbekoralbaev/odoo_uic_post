@@ -1,0 +1,20 @@
+{
+    'name': 'UIC Post',
+    'version': '1.0',
+    'summary': 'Post Management System',
+    'description': 'A module for managing mail orders, inventory, and user roles in a postal service.',
+    'category': 'Operations',
+    'author': 'Diyarbek Oralbaev',
+    'depends': ['base', 'sale', 'stock', 'website', 'loyalty'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'security/ir.rule.xml',
+        'views/mailorder_views.xml',
+        'views/templates.xml',
+        'views/website_templates.xml',
+        'data/mail_order_sequence.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

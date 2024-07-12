@@ -1,0 +1,33 @@
+<odoo>
+    <!-- Define a new security group category -->
+    <record id="module_category_uic_post" model="ir.module.category">
+        <field name="name">UIC Post</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- User Groups -->
+    <record id="group_uic_post_operator" model="res.groups">
+        <field name="name">Operator</field>
+        <field name="category_id" ref="module_category_uic_post"/>
+    </record>
+
+    <record id="group_uic_post_storekeeper" model="res.groups">
+        <field name="name">Storekeeper</field>
+        <field name="category_id" ref="module_category_uic_post"/>
+    </record>
+
+    <record id="group_uic_post_delivery_person" model="res.groups">
+        <field name="name">Delivery Person</field>
+        <field name="category_id" ref="module_category_uic_post"/>
+    </record>
+
+    <record id="group_uic_post_head_branch" model="res.groups">
+        <field name="name">Head of Branch</field>
+        <field name="category_id" ref="module_category_uic_post"/>
+    </record>
+
+    <record id="group_uic_post_superadmin" model="res.groups">
+        <field name="name">Superadmin</field>
+        <field name="category_id" ref="module_category_uic_post"/>
+    </record>
+</odoo>

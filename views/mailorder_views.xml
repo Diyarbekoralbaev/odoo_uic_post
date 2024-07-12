@@ -1,0 +1,59 @@
+<odoo>
+    <!-- Mail Order Form View -->
+    <record id="view_mailorder_form" model="ir.ui.view">
+        <field name="name">mailorder.form</field>
+        <field name="model">uic.post.mailorder</field>
+        <field name="arch" type="xml">
+            <form string="Mail Order">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sender_id"/>
+                        <field name="recipient_id"/>
+                        <field name="sending_branch_id"/>
+                        <field name="receiving_branch_id"/>
+                        <field name="package_count"/>
+                        <field name="total_weight"/>
+                        <field name="size"/>
+                        <field name="is_fragile"/>
+                        <field name="price" readonly="1"/>
+                        <field name="status"/>
+                        <field name="loyalty_points" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Mail Order Tree View -->
+    <record id="view_mailorder_tree" model="ir.ui.view">
+        <field name="name">mailorder.tree</field>
+        <field name="model">uic.post.mailorder</field>
+        <field name="arch" type="xml">
+            <tree string="Mail Orders">
+                <field name="name"/>
+                <field name="sender_id"/>
+                <field name="recipient_id"/>
+                <field name="sending_branch_id"/>
+                <field name="receiving_branch_id"/>
+                <field name="package_count"/>
+                <field name="total_weight"/>
+                <field name="size"/>
+                <field name="price"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Mail Order Action -->
+    <record id="action_mailorder" model="ir.actions.act_window">
+        <field name="name">Mail Orders</field>
+        <field name="res_model">uic.post.mailorder</field>
+        <field name="view_mode">tree,form</field>
+        <field name="groups_id" eval="[(4, ref('uic_post.group_uic_post_operator')), (4, ref('uic_post.group_uic_post_storekeeper')), (4, ref('uic_post.group_uic_post_delivery_person')), (4, ref('uic_post.group_uic_post_head_branch')), (4, ref('uic_post.group_uic_post_superadmin'))]"/>
+    </record>
+
+    <!-- Mail Order Menu -->
+    <menuitem id="menu_mailorder_root" name="Mail Orders" sequence="1"/>
+    <menuitem id="menu_mailorder" name="Mail Orders" parent="menu_mailorder_root" action="action_mailorder"/>
+</odoo>

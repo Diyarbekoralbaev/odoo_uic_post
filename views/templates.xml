@@ -1,0 +1,31 @@
+<odoo>
+    <template id="check_status_form" name="Check Status Form">
+        <div class="container mt-5">
+            <h2 style="text-align: center;">Check Order Status</h2>
+            <form action="/get_status" method="post">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 30vh;">
+                    <div class="form-group" style="width: 50%; padding: 10px;">
+                        <label for="postal_invoice_id">Postal Invoice ID</label>
+                        <input type="text" name="postal_invoice_id" class="form-control" required="required"/>
+                    </div>
+                    <button type="submit" style="width: 50%; padding: 10px;" class="btn btn-primary">Check Status</button>
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <template id="status_result" name="Status Result">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <h2>Order Status</h2>
+                <p>Your order status is:
+                    <strong>
+                        <t t-esc="status"/>
+                    </strong>
+                </p>
+                <a href="/" class="btn btn-secondary">Check Another Status</a>
+            </div>
+        </t>
+    </template>
+</odoo>

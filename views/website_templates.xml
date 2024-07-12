@@ -1,0 +1,7 @@
+<odoo>
+    <template id="website_main_page" inherit_id="website.homepage">
+        <xpath expr="//div[@id='wrap']" position="inside">
+            <t t-call="uic_post.check_status_form"/>
+        </xpath>
+    </template>
+</odoo>
